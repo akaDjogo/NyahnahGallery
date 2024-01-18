@@ -63,16 +63,15 @@
       background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414740103288/Miriluz.png?ex=65b9e463&is=65a76f63&hm=0d848ee348c96b2d31fc223bc312e6706b384b72fc60ca4db22f685160d8a5af&');
     }
 
-    .buttons button#prev {
+    .buttons {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       position: absolute;
       top: 50%;
-      left: 1rem;
-    }
-
-    .buttons button#next {
-      position: absolute;
-      top: 50%;
-      right: 1rem;
+      transform: translateY(-50%);
+      z-index: 1;
     }
 
     .buttons button {
@@ -90,4 +89,95 @@
       color: #362a2b;
     }
 
-    @media (min-width: 640px
+    .buttons button#prev {
+      margin-left: 1rem;
+    }
+
+    .buttons button#next {
+      margin-right: 1rem;
+    }
+
+    @media (min-width: 640px) and (min-height: 640px) {
+      .slide .content {
+        bottom: 70px;
+        left: -600px;
+        width: 600px;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      .slide .content h1 {
+        font-size: 2rem;
+      }
+
+      .slide.current .content {
+        transform: translateX(600px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="slider">
+    <div class="slide current"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+  <div class="buttons">
+    <button id="prev"><i class="fas fa-arrow-left"></i></button>
+    <button id="next"><i class="fas fa-arrow-right"></i></button>
+  </div>
+  <!-- partial -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const nextButton = document.getElementById("next");
+    const prevButton = document.getElementById("prev");
+    const auto = true;
+    const intervalTime = 5000;
+    let slideInterval;
+
+    const nextSlide = () => {
+      const current = document.querySelector(".current");
+      current.classList.remove("current");
+      if (current.nextElementSibling) {
+        current.nextElementSibling.classList.add("current");
+      } else {
+        slides[0].classList.add("current");
+      }
+    };
+
+    const prevSlide = () => {
+      const current = document.querySelector(".current");
+      current.classList.remove("current");
+      if (current.previousElementSibling) {
+        current.previousElementSibling.classList.add("current");
+      } else {
+        slides[slides.length - 1].classList.add("current");
+      }
+    };
+
+    nextButton.addEventListener("click", () => {
+      nextSlide();
+      if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+      }
+    });
+    prevButton.addEventListener("click", () => {
+      prevSlide();
+      if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+      }
+    });
+
+    if (auto) {
+      slideInterval = setInterval(nextSlide, intervalTime);
+    }
+  </script>
+</body>
+
+</html>
