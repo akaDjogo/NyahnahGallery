@@ -17,7 +17,7 @@
 
     body {
       font-family: "Lexend", sans-serif;
-      background-color: transparent;
+      background-color: transparent; /* Alterado para transparente */
       color: #e5ebf3;
     }
 
@@ -37,47 +37,30 @@
       background-position: center top;
       background-size: cover;
       border-radius: 20px; /* Adicione essa propriedade para bordas curvas */
-      position: relative;
     }
 
     .slide.current {
       opacity: 1;
     }
 
-    .slide-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
     .slide:nth-child(1) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237635295498310/E6reafUX0AYRaKn.png?ex=65ba896f&is=65a8146f&hm=b1cf782b2666463e8d8c3e6ec2cdb894c663d6ba62faf0c717511e8626a3a71a&');
+      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060415335714846/Untitled.png?ex=65b9e463&is=65a76f63&hm=7f93c4f1a8a1002b279bf4ae5bf766ad7f3923b1c764ea18186ea19801714fb2&');
     }
 
     .slide:nth-child(2) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237631021494443/FLuI4SkXwAIuRv7.png?ex=65ba896e&is=65a8146e&hm=0dd7d3707929971ef10fc326f31c9bcc5da907de5f2fec9d3623ecf53a8a27a5&');
+      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&');
     }
 
     .slide:nth-child(3) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237631419961364/FcdnWKGWIAMXvZ-.png?ex=65ba896e&is=65a8146e&hm=8ed25c894bdb958208e221ce0fa29d10a41d803092e5e4eabd4e533ffd43b007&');
+      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&');
     }
 
     .slide:nth-child(4) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237632502091896/FvSYkg-WwAk-JLP.png?ex=65ba896f&is=65a8146f&hm=0f22c9f39afc69c443b171a6f9408e979a89dfffdf06f0abe071cfccdd258ac4&');
+      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414253584464/Mirichris.png?ex=65b9e463&is=65a76f63&hm=034d6f538aaaa1bbaab5308ebf505aeeb2bd940da9e6758a4c56fe5d03306022&');
     }
 
     .slide:nth-child(5) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237631864549447/FklyJj9XkAYTcnI.png?ex=65ba896f&is=65a8146f&hm=7a0a4190ea3f237e5e080d7129c103e970b525dd3cf616c144af32dbc94b1bab&');
-    }
-
-    .slide:nth-child(6) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237633249147394/FklyJj9XkAYTcnI.png?ex=65ba896f&is=65a8146f&hm=7a0a4190ea3f237e5e080d7129c103e970b525dd3cf616c144af32dbc94b1bab&');
-    }
-
-    .slide:nth-child(7) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197237634452435084/FPS7ZurWYAAMYdh.png?ex=65ba896f&is=65a8146f&hm=7d4860944b21cad21be2c9db8b059853df163db2871407f53d150dacc86ae20f&');
+      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414740103288/Miriluz.png?ex=65b9e463&is=65a76f63&hm=0d848ee348c96b2d31fc223bc312e6706b384b72fc60ca4db22f685160d8a5af&');
     }
 
     .buttons {
@@ -105,65 +88,22 @@
       background-color: #e5ebf3;
       color: #362a2b;
     }
-
-    .buttons button#prev {
-      margin-left: 1rem;
-    }
-
-    .buttons button#next {
-      margin-right: 1rem;
-    }
-
-    @media (min-width: 640px) and (min-height: 640px) {
-      .slide .content {
-        bottom: 70px;
-        left: -600px;
-        width: 600px;
-        padding: 2rem;
-        line-height: 1.6;
-      }
-
-      .slide .content h1 {
-        font-size: 2rem;
-      }
-
-      .slide.current .content {
-        transform: translateX(600px);
-      }
-    }
   </style>
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
   <div class="slider">
-    <div class="slide current">
-      <div class="slide-content">Slide 1 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 2 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 3 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 4 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 5 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 6 Content</div>
-    </div>
-    <div class="slide">
-      <div class="slide-content">Slide 7 Content</div>
-    </div>
+    <div class="slide current"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
   </div>
   <div class="buttons">
     <button id="prev"><i class="fas fa-arrow-left"></i></button>
     <button id="next"><i class="fas fa-arrow-right"></i></button>
   </div>
-  <!-- partial -->
+
   <script>
     const slides = document.querySelectorAll(".slide");
     const nextButton = document.getElementById("next");
