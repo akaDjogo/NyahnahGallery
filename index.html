@@ -37,10 +37,19 @@
       background-position: center top;
       background-size: cover;
       border-radius: 20px; /* Adicione essa propriedade para bordas curvas */
+      position: relative;
     }
 
     .slide.current {
       opacity: 1;
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
     }
 
     .slide:nth-child(1) {
@@ -128,13 +137,27 @@
 <body>
   <!-- partial:index.partial.html -->
   <div class="slider">
-    <div class="slide current"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
+    <div class="slide current">
+      <div class="slide-content">Slide 1 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 2 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 3 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 4 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 5 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 6 Content</div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">Slide 7 Content</div>
+    </div>
   </div>
   <div class="buttons">
     <button id="prev"><i class="fas fa-arrow-left"></i></button>
