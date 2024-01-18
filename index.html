@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Imagem Slider Responsivo em Tela Cheia</title>
+  <title>CodePen - Full-Screen Responsive Image Slider</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
   <link rel="stylesheet" href="./style.css">
   <style>
@@ -17,26 +17,25 @@
 
     body {
       font-family: "Lexend", sans-serif;
-      background-color: transparent; /* Alterado para transparente */
+      background-color: #362a2b;
       color: #e5ebf3;
     }
 
     .slider {
-      display: flex;
-      width: 100%;
+      position: relative;
+      width: 100vw;
       height: 100vh;
       overflow: hidden;
-      border-radius: 20px; /* Adicione essa propriedade para bordas curvas */
     }
 
     .slide {
-      flex: 0 0 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100%;
       opacity: 0;
       transition: opacity 0.4s ease-in-out;
-      background-position: center top;
-      background-size: cover;
-      border-radius: 20px; /* Adicione essa propriedade para bordas curvas */
     }
 
     .slide.current {
@@ -44,34 +43,35 @@
     }
 
     .slide:nth-child(1) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060415335714846/Untitled.png?ex=65b9e463&is=65a76f63&hm=7f93c4f1a8a1002b279bf4ae5bf766ad7f3923b1c764ea18186ea19801714fb2&');
+      background: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060415335714846/Untitled.png?ex=65b9e463&is=65a76f63&hm=7f93c4f1a8a1002b279bf4ae5bf766ad7f3923b1c764ea18186ea19801714fb2&') no-repeat center top/cover;
     }
 
     .slide:nth-child(2) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&');
+      background: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&') no-repeat center top/cover;
     }
 
     .slide:nth-child(3) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&');
+      background: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060413477638185/Miriana_do_Olhar_Penetrante.png?ex=65b9e462&is=65a76f62&hm=efba8df13787d8874713e5811465fae82576eda28483e6893c3ffd8ed46ff8d4&') no-repeat center top/cover;
     }
 
     .slide:nth-child(4) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414253584464/Mirichris.png?ex=65b9e463&is=65a76f63&hm=034d6f538aaaa1bbaab5308ebf505aeeb2bd940da9e6758a4c56fe5d03306022&');
+      background: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414253584464/Mirichris.png?ex=65b9e463&is=65a76f63&hm=034d6f538aaaa1bbaab5308ebf505aeeb2bd940da9e6758a4c56fe5d03306022&') no-repeat center top/cover;
     }
 
     .slide:nth-child(5) {
-      background-image: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414740103288/Miriluz.png?ex=65b9e463&is=65a76f63&hm=0d848ee348c96b2d31fc223bc312e6706b384b72fc60ca4db22f685160d8a5af&');
+      background: url('https://cdn.discordapp.com/attachments/1137149516173287605/1197060414740103288/Miriluz.png?ex=65b9e463&is=65a76f63&hm=0d848ee348c96b2d31fc223bc312e6706b384b72fc60ca4db22f685160d8a5af&') no-repeat center top/cover;
     }
 
-    .buttons {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    .buttons button#prev {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
+      left: 1rem;
+    }
+
+    .buttons button#next {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
     }
 
     .buttons button {
@@ -88,10 +88,29 @@
       background-color: #e5ebf3;
       color: #362a2b;
     }
+
+    @media (min-width: 640px) and (min-height: 640px) {
+      .slide .content {
+        bottom: 70px;
+        left: -600px;
+        width: 600px;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      .slide .content h1 {
+        font-size: 2rem;
+      }
+
+      .slide.current .content {
+        transform: translateX(600px);
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- partial:index.partial.html -->
   <div class="slider">
     <div class="slide current"></div>
     <div class="slide"></div>
@@ -103,7 +122,7 @@
     <button id="prev"><i class="fas fa-arrow-left"></i></button>
     <button id="next"><i class="fas fa-arrow-right"></i></button>
   </div>
-
+  <!-- partial -->
   <script>
     const slides = document.querySelectorAll(".slide");
     const nextButton = document.getElementById("next");
